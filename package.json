@@ -1,0 +1,36 @@
+{
+  "name": "ai-office",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "bridge": "node server/bridge.mjs",
+    "send:event": "node scripts/send-event.mjs",
+    "test:bridge": "node --test scripts/bridge.test.mjs",
+    "test:codex": "node --test scripts/codex-bridge.test.mjs",
+    "test:living": "node --test scripts/living.test.mjs"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.4.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "three": "^0.180.0",
+    "zustand": "^5.0.8",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@types/three": "^0.180.0",
+    "@vitejs/plugin-react": "^5.0.4",
+    "typescript": "~5.9.3",
+    "vite": "^7.1.12"
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  }
+}
