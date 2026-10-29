@@ -11,7 +11,9 @@
     "send:event": "node scripts/send-event.mjs",
     "test:bridge": "node --test scripts/bridge.test.mjs",
     "test:codex": "node --test scripts/codex-bridge.test.mjs",
-    "test:living": "node --test scripts/living.test.mjs"
+    "test:living": "node --test scripts/living.test.mjs",
+    "start": "node scripts/start-office.mjs",
+    "test:start": "node --test scripts/start-office.test.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

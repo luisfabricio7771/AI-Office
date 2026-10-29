@@ -15,6 +15,7 @@ class SceneBoundary extends React.Component<{ children: React.ReactNode }, { fai
 function App() {
   const { agents, selected, select, running, toggle, reset, logs, step, tick, mode, setMode, connection, setConnection, receive, lastEvent, notification, dismiss } = useOffice(useShallow(s => { const { life: _life, ...ui } = s; return ui }))
   const [help, setHelp] = useState(false)
+  useEffect(() => { if(new URLSearchParams(window.location.search).get('mode') === 'live') setMode('live') }, [setMode])
   useEffect(() => { const timer = window.setInterval(step, 2200); return () => clearInterval(timer) }, [step])
   useEffect(() => {
     if (mode !== 'live') return

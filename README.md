@@ -1,5 +1,10 @@
 # AI OFFICE
 
+**Windows: abre `INICIAR-AI-OFFICE.cmd` con doble clic.** Instala dependencias la primera vez, abre la oficina en LIVE y conecta el puente con un token temporal automático. También puedes usar `npm.cmd install` y `npm.cmd start`.
+
+En esa única terminal: **P** prueba la conexión sin créditos, **L** inicia sesión en Codex y **C** pide una tarea real. Solo C ejecuta una tarea de IA (consume uso). Requiere Codex CLI para L/C: `npm.cmd install -g @openai/codex`. **S** cierra todo. No hace falta copiar tokens ni abrir tres terminales. Observa únicamente las tareas lanzadas desde este menú.
+
+
 Oficina 3D con DEMO autónoma y eventos LIVE por WebSocket. Node >=22.18.
 
 ```sh
