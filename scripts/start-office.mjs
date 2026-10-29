@@ -45,7 +45,7 @@ function stopChild(child) {
   } else child.kill()
 }
 export async function runTask(office, task, launch = spawnCodex) {
-  const child = launch(['exec','--json','-'])
+  const child = launch(['exec','--skip-git-repo-check','--json','-'])
   const exited = new Promise((resolve,reject) => { child.once('error',reject); child.once('close',code=>resolve(code)) })
   // Handle spawn errors even if the adapter is still waiting on its stream.
   exited.catch(() => {})
@@ -80,7 +80,7 @@ async function main() {
         const task = await rl.question('Tarea para Codex (ejecución real, consume uso; vacío cancela): ')
         if(!task.trim()) continue
         console.log('Trabajando en la carpeta de AI OFFICE. Sigue CODEX en la web.\n')
-        try { await runTask(office,task,(...args)=>{child=spawnCodex(...args);return child});console.log('Sesión de Codex terminada.\n') } catch {console.log('No se pudo completar la tarea. Comprueba Codex instalado y usa L para iniciar sesión.')} finally {child=undefined}
+        try { await runTask(office,task,(...args)=>{child=spawnCodex(...args);return child});console.log('Sesión de Codex terminada.\n') } catch(error) {console.log(error?.code === 'ENOENT' ? 'Codex no está instalado. Ejecuta npm.cmd install -g @openai/codex.' : 'Codex se detuvo. Revisa el mensaje de esta terminal; la oficina sigue conectada.')} finally {child=undefined}
       }
     }
   } catch(error) {if(!closing)throw error} finally {await close()}

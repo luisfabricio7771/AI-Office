@@ -18,7 +18,7 @@ test('Inicio único: token automático, cliente LIVE y tarea conectada sin shell
   const prompt='Revisa sin modificar; $(& echo PRIVATE) "test"\nSegunda línea'
   let captured=''
   const launch=args=>{
-    assert.deepEqual(args,['exec','--json','-'])
+    assert.deepEqual(args,['exec','--skip-git-repo-check','--json','-'])
     const child=new EventEmitter()
     child.stdin=new PassThrough();child.stdout=new PassThrough();child.exitCode=null
     child.kill=()=>assert.fail('Completed child should not be killed')
